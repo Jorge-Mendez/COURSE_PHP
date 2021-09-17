@@ -1,0 +1,278 @@
+<html>
+   <head>
+      <title>Mi_primer_PHP_Pagina_Jorge_Mendez</title>
+    </head>
+    <body>
+    <?php
+      echo "Hola Mundo!";
+   ?>
+    </body>
+</html>
+<?php
+    echo "<strong>Este es mi texto.</strong>";
+<?php
+   echo "<p>Hola Mundo!</p>";
+   // This is a single-line comment
+    echo "<p>Yo soy PHP!</p>";
+    echo "<p>Esta es mi primera programación!</p>";
+?>
+<?php
+  echo "<p>Hola Mundo!</p>";
+  /*
+  Este es un multi-line comment block
+  that spans over
+  multiple lines
+  */
+  echo "<p>Yo soy PHP!</p>";
+  echo "<p>Esta es mi primera progamación!</p>";
+?>
+<?php
+  $name = "Jorge";
+  $age = 18;
+  echo $name;
+ //Outputs "Jorge"
+?>
+***********************CONSTANTS***************************
+define(name, value, case-insensitive)
+<?php
+  define( "MSG", "Hola SoloLearner!);
+  echo MSG;
+     // Outputs "Hola SoloLearner!"
+?>
+<?php
+   define("MSG", "Hola SoloLearner!", true);
+echo msg;
+    //Outputs "Hola SoloLearner!"
+?>
+***************PHP STRING*********************
+<?php
+  $string1 = "Hola Mundo!"; //double quotes
+  $string2 = "Hola Mundo!"; //single quotes
+?>
+****************PHP INTEGER********************
+<?php
+   $int1 = 42; // número positivo
+   $int2 = -42; // número negativo
+?>
+***********PHP Float************
+<?php
+   $x = 42.168;
+?>
+***********PHP Boolean****************
+<?php 
+$x = true; $y=false;
+?>
+<?php
+  $str = "10";
+  $int = 20;
+  $sum = "str + $int;
+  echo ($sum);
+  // Outputs 30
+?>
+***********Variables Scope******************
+<?php
+  $name = "Jorge";
+  function getName (){
+   echo $name;
+}
+getName ();
+// Error: Undefined variable: name
+?>
+<?php
+  $name = "Jorge";
+  function getName (){
+   global $name;
+   echo $name;
+  }
+  getName();
+ //Outputs "Jorge"
+?>
+*************Variable Variables****************
+<?php 
+  $a = "hello";
+  $hello = "Hi!";
+  echo $$a;
+  //  Outputs "Hi!"
+?>
+**************Operartors*****************
+<?php 
+  $num1 = 8;
+  $num2 = 6;
+  
+  //Addition
+  echo $num1 + num2; //14
+  //Subtraction
+  echo $num1 - $num2; //2
+  //Multiplication
+  echo $num1 * $num2; //48
+  //Division
+  echo $num 1 /num2; //1.333333333333
+?>
+*********Modulus********
+<?php
+  $x = 14;
+  $y = 3;
+  echo $x % $y; //2
+?>
+************Increment & Decrement**************
+$x++; // equivalent to $x = $x+1;
+$x--; // equivalent to $x = $x-1;
+$x++; // post-increment
+$x--; // post-decrement
+++$x; // pre-increment
+--$x; // pre-decrement
+$a = 2; $b = $a++; // $b=3, $b=2
+$a = 2; $b = ++$a; // $a=3, $b=3
+***********Arrays***************
+$name1 = "David";
+$name2 = "Amy";
+$name3 = "John";
+***********Numeric Arrays***********
+$names = array("David","Amy","John");
+
+************Functions***************
+function functionName() {
+  //code to be executed
+}
+*************Functions********************
+function sayHola() { 
+  echo "Hola";
+}
+sayHello(); //call rhe function
+//Outputs "Hola!"
+******************Function Parameters*****************
+function mulriplyByTwo($number){
+  $answer = $number * 2;
+echo $answer;
+}
+multiplyByTwo(3);
+//Outputs 6
+function multiply($num1, $num2) { 
+  echo $num1 * $num2;
+}
+multiply(3, 6);
+//Outputs 18
+*****************Default Arguments****************
+function setCounter($num=10) {
+  echo "Counter is ".$num;
+}
+setCounter(42); //Counter is 42
+setCounter(); //Counter is 10
+
+**************Return********************
+function mult($num1, $num2) { 
+ $res = $un1 * $num2;
+  return $res;
+}
+echo mult (8, 3);
+// Outputs 24
+******************************forms******************
+<form action="first.php" method= "post">
+  <p>Name: <input type="text" name="Name" /></p>
+  <p>Age: <input type= "text" name= "Age" /></p>
+  <p><input type= "submit" name="submit" value= "Submit"
+/></p>
+</form>
+************actionGet.php*********************
+<?php
+echo "Hi ".$_GET['name'].". ";
+echo "You are ".$_GET['age']." years old.";
+?>
+*************Formularios*************
+<html>
+<body>
+
+Bienvenido <?php echo $_POST["nombre"]; ?><br />
+Tu edad: <?php echo $_POST["edad"]; ?>
+
+</body>
+</html>
+************Start a PHP Session**********
+<?php
+// Start the session
+session_start();
+
+$_SESSION['color'] = "red";
+$_SESSION['name'] = "John";
+?>
+Session Variables
+<?php
+// Start the session
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+echo "Your name is " . $_SESSION['name'];
+// Outputs "Your name is Jorge"
+?>
+</body>
+</html>
+**************Cookies*****************
+setcookie(name, value, expire, path, domain, secure, httponly);
+<?php
+$value = "John";
+setcookie("user", $value, time() + (86400 * 30), '/'); 
+
+if(isset($_COOKIE['user'])) {
+  echo "Value is: ". $_COOKIE['user'];
+}
+//Outputs "Value is: John"
+?>
+***************Manipulating Files************************
+$myfile = fopen("file.txt", "w");
+*****************Write to File************************
+<?php
+$myfile = fopen("names.txt", "w");
+
+$txt = "John\n";
+fwrite($myfile, $txt);
+$txt = "David\n";
+fwrite($myfile, $txt);
+
+fclose($myfile);
+
+/* File contains:
+John
+David
+*/
+?>
+*********************Appending to a File**********************
+$myFile = "test.txt";
+$fh = fopen($myFile, 'a');
+fwrite($fh, "Some text");
+fclose($fh);
+<?php
+if(isset($_POST['text'])) {
+  $name = $_POST['text'];
+  $handle = fopen('names.txt', 'a');
+  fwrite($handle, $name."\n");
+  fclose($handle); 
+}
+?>
+<form method="post">
+  Name: <input type="text" name="text" /> 
+  <input type="submit" name="submit" />
+</form>
+**************Reading a File************
+$read = file("name.txt");
+foreach ($read as $line) { 
+  echo $line .", ";
+}
+**************Reading a File****************
+$read = file("name.txt");
+$count = count($read);
+$i = 1;
+fireach ($read as $line) { 
+  echo $line;
+  if($i < $count) {
+   echo ", ";
+}
+$i++;
+}
+fopen fclosed f write
+***********PHP Interfaces***************
+class Demo implements AInterface, BInterface, CInterface {
+  // Functions declared in interfaces must be defined here
+}
